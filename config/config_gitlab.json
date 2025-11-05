@@ -1,0 +1,5 @@
+{
+  "base_url": "https://gitlab.com",
+  "group_id": "116891110",
+  "output_path": "data/gitlab_repos.json"
+}
