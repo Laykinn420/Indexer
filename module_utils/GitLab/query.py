@@ -8,13 +8,16 @@ class GitLabAPI:
 
     def get_repositories(self, group_id):
         url = f"{self.base_url}/api/v4/groups/{group_id}/projects?per_page=100"
-        repos = []
+        return self._get_paginated(url)
+
+    def _get_paginated(self, url):
+        items = []
         while url:
             r = requests.get(url, headers=self.headers)
             r.raise_for_status()
-            repos.extend(r.json())
+            items.extend(r.json())
             url = r.links.get("next", {}).get("url")
-        return repos
+        return items
 
     def get_subgroups(self, group_id):
         url = f"{self.base_url}/api/v4/groups/{group_id}/subgroups?per_page=100"
