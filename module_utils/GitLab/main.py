@@ -5,7 +5,6 @@ from library.indexer import index_repositories
 from module_utils.GitLab.query import GitLabAPI
 
 def save_repository(repo, folder_path):
-    """Gem et enkelt repository som en JSON-fil."""
     os.makedirs(folder_path, exist_ok=True)
     file_path = os.path.join(folder_path, f"{repo['name']}.json")
     with open(file_path, "w", encoding="utf-8") as f:

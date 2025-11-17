@@ -4,7 +4,6 @@ from module_utils.GitLab.models import Repository
 
 
 def collect_all_repositories(tree):
-    """Rekursivt saml alle projekter fra træet."""
     repos = []
 
     # Tilføj projekterne fra denne gruppe

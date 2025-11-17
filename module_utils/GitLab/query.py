@@ -50,6 +50,7 @@ class GitLabAPI:
                     "id": p["id"],
                     "name": p["name"],
                     "web_url": p["web_url"],
+                    "name_with_namespace": p["name_with_namespace"],
                     "last_activity_at": p["last_activity_at"],
                 }
                 for p in projects
