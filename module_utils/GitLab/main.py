@@ -1,7 +1,6 @@
 import json
 import os
 from dotenv import load_dotenv
-from library.indexer import index_repositories
 from module_utils.GitLab.query import GitLabAPI
 
 def save_repository(repo, folder_path):
@@ -31,8 +30,8 @@ def main():
     token = os.getenv("GITLAB_TOKEN")
     assert token, "⚠️  Missing GITLAB_TOKEN in .env file"
 
-    base_url = "https://gitlab.com"
-    group_id = "116891110"
+    base_url = os.getenv("GITLAB_BASE_URL")
+    group_id = os.getenv("GITLAB_GROUP_ID")
 
     api = GitLabAPI(base_url, token)
     print("⏳ Fetching full GitLab group tree...")
